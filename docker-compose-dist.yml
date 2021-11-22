@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: svsc_nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8089:80"
+    volumes:
+      - ./backend:/var/www/backend
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/:cached
+    networks:
+      - app-network
+  
+  php:
+    build:
+      context: ./docker/php
+      args:
+        WITH_XDEBUG: 'false'
+    container_name: svsc_php
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+      PHP_IDE_CONFIG: "serverName=search-vscode"
+      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_port=9003"
+    working_dir: /var/www/backend
+    volumes:
+      - ./backend:/var/www/backend
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini:cached
+      - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:cached
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external:
+      name: svsc-bridge
