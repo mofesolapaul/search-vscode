@@ -3,8 +3,25 @@ FROM php:8.0-fpm
 # Set working directory
 WORKDIR /var/www
 
-RUN docker-php-ext-install mysqli
-RUN docker-php-ext-install pdo_mysql
+RUN runtimeDeps=" \
+        git \
+        zip \
+    " \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $runtimeDeps \
+    && rm -r /var/lib/apt/lists/*
+
+RUN docker-php-ext-install mysqli pdo_mysql
+
+RUN apt-get update && apt-get install -y \
+    zlib1g-dev \
+    libzip-dev \
+    libfreetype6-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev
+RUN docker-php-ext-install zip
+
 RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
