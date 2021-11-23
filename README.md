@@ -6,5 +6,5 @@ The entire setup process has been distilled into a single file to make it easy f
  ```bash
  chmod u+x setup.sh && ./setup.sh
  ```
-- Frontend app will be available at `localhost:8088`
-- Backend app will be available at `localhost:8089`
+- Frontend app will be available at [localhost:8088](localhost:8088)
+- Backend app will be available at [localhost:8089](localhost:8089)
