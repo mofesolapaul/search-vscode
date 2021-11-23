@@ -2,14 +2,19 @@ version: '3.3'
 
 services:
   nginx:
-    image: nginx:alpine
+    build:
+      context: ./docker/nginx
     container_name: svsc_nginx
     restart: unless-stopped
     tty: true
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
     ports:
       - "8089:80"
+      - "8088:8080"
     volumes:
       - ./backend:/var/www/backend
+      - ./frontend:/app
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/:cached
     networks:
       - app-network

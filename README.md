@@ -1,10 +1,9 @@
 ## Project: Search VSCode
 
 ### Setup instructions
-1. Run the following commands to get the containers up
+1. Run this command to get everything set up
     ```bash
-    cp docker-compose-dist.yml docker-compose.yml
-    docker network create svsc-bridge
-    docker-compose up -d --build
+    chmod u+x setup.sh && ./setup.sh
     ```
-2. Backend app will be available at `localhost:8089`
+2. Frontend app will be available at `localhost:8088`
+3. Backend app will be available at `localhost:8089`
