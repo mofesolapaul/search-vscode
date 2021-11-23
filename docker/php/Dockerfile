@@ -10,7 +10,7 @@ RUN runtimeDeps=" \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $runtimeDeps \
     && rm -r /var/lib/apt/lists/*
 
-RUN docker-php-ext-install mysqli pdo_mysql
+RUN docker-php-ext-install pdo_mysql
 
 RUN apt-get update && apt-get install -y \
     zlib1g-dev \
