@@ -4,13 +4,13 @@ namespace App\UseCase;
 
 use App\Exception\ApiCallException;
 use App\Model\SearchData;
-use App\Service\SearchService;
+use App\Service\CacheService;
 
 class PerformCodeSearchUseCase
 {
-    private SearchService $service;
+    private CacheService $service;
 
-    public function __construct(SearchService $service)
+    public function __construct(CacheService $service)
     {
         $this->service = $service;
     }
@@ -18,7 +18,7 @@ class PerformCodeSearchUseCase
     public function execute(SearchData $data): array
     {
         try {
-            return $this->service->search($data);
+            return $this->service->query($data);
         } catch (\Exception) {
             throw new ApiCallException('There was a problem fetching results for your search');
         }
