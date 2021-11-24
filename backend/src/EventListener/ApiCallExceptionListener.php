@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 
-class ArrayExceptionListener
+class ApiCallExceptionListener
 {
     public function onKernelException(ExceptionEvent $event)
     {
