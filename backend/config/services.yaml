@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     vscode_search_api: '%env(SEARCH_API)%'
+    redis.host: '%env(REDIS_HOST)%'
+    redis.port: '%env(REDIS_PORT)%'
 
 services:
     # default configuration for services in *this* file

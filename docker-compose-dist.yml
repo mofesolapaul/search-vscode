@@ -40,7 +40,19 @@ services:
     networks:
       - app-network
 
+  redis:
+    container_name: svsc_redis
+    image: redis:alpine
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+
 networks:
   app-network:
     external:
       name: svsc-bridge
+
+volumes:
+  redis-data:
+    driver: local
