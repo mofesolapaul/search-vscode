@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=SearchHistoryRepository::class)
+ * @ORM\Table(name="searches")
  */
 class SearchHistory
 {
