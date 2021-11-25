@@ -54,6 +54,8 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
         PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
 RUN docker-php-ext-install opcache
 
+RUN apt-get update && apt-get -y install screen
+
 USER root
 
 EXPOSE 9001
