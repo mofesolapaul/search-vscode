@@ -8,6 +8,7 @@ printf '\nBUILDING FRONTEND APP\n'
 cat <<frontend | docker exec --interactive svsc_nginx bash
   cd /app
   npm install
+  cp .env.dist .env.production.local
   npm run build
   cp -r /app/build /var/www/html
 frontend
