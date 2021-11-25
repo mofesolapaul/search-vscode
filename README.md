@@ -1,7 +1,7 @@
 ## Project: Search VSCode
 
 ### Setup instructions
-The entire setup process has been distilled into a single file to make it easy for you to spin up the application and try it out. Run the following command in the project folder:
+The entire setup process has been distilled into a single file to make it easy for you to spin up the application and try it out. Run the following command in the project folder (p.s: docker must be installed on your machine):
 
  ```bash
  chmod u+x setup.sh && ./setup.sh
