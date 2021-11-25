@@ -1,8 +1,8 @@
 function ResultPane({ data }) {
     return (
         <div className="resultPane">
-            <table>
-                <thead>
+            <table className={`table table-striped table-hover table-sm table-bordered`}>
+                <thead className={`thead-light`}>
                 <tr>
                     <th>Name</th>
                     <th>Path</th>
@@ -10,11 +10,11 @@ function ResultPane({ data }) {
                 </tr>
                 </thead>
                 <tbody>
-                {data.map(result => (
-                    <tr>
+                {data.map((result, index) => (
+                    <tr key={index}>
                         <td>{result.name}</td>
                         <td>{result.path}</td>
-                        <td><a href={result.html_url} target="_blank">view on github</a></td>
+                        <td><a href={result.html_url} target="_blank" rel="noreferrer">view on github</a></td>
                     </tr>
                 ))}
                 </tbody>
