@@ -18,7 +18,7 @@ class ApiCallExceptionListener
         }
 
         $event->setResponse(new JsonResponse(
-            $exception->getMessage(),
+            ['error' => $exception->getMessage()],
             Response::HTTP_BAD_REQUEST
         ));
     }

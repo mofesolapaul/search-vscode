@@ -25,7 +25,7 @@ class SearchController extends AbstractController
     {
         $data = new SearchData($request->getClientIp());
         $form = $this->createForm(SearchType::class, $data);
-        $form->submit($request->request->all());
+        $form->submit(json_decode($request->getContent(), true));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $response = $this->useCase->execute($data);
@@ -33,6 +33,9 @@ class SearchController extends AbstractController
             return new JsonResponse($response);
         }
 
-        return new JsonResponse('Invalid data', Response::HTTP_BAD_REQUEST);
+        return new JsonResponse(
+            ['error' => 'Invalid data'],
+            Response::HTTP_BAD_REQUEST
+        );
     }
 }

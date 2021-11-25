@@ -24,11 +24,13 @@ class CacheService
 
     public function query(SearchData $data): array
     {
-        $url = sprintf(
-            $this->container->getParameter('vscode_search_api'),
+        $searchQuery = sprintf(
+            '%s in:file language:%s repo:microsoft/vscode',
             $data->getQuery(),
             $data->getLanguage()
         );
+        $url = $this->container->getParameter('vscode_search_api') .
+            rawurlencode($searchQuery);
         $cacheKey = sha1($url);
         $cacheItem = $this->adapter->getItem($cacheKey);
         if ($cacheItem->isHit()) {

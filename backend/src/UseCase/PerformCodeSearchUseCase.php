@@ -28,7 +28,7 @@ class PerformCodeSearchUseCase
             $this->messageBus->dispatch(new RecordSearchMessage($data));
 
             return $result;
-        } catch (\Exception) {
+        } catch (\Exception $ex) {
             throw new ApiCallException('There was a problem fetching results for your search');
         }
     }

@@ -25,7 +25,7 @@ class SearchData
 
     public function getQuery(): string
     {
-        return urlencode($this->query);
+        return $this->query;
     }
 
     public function setQuery(string $query): void
