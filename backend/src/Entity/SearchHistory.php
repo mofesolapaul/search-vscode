@@ -29,14 +29,9 @@ class SearchHistory
     private ?string $query;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
-    private ?\DateTimeImmutable $searchedAt;
-
-    public function __construct()
-    {
-        $this->searchedAt = new \DateTimeImmutable();
-    }
+    private ?\DateTime $searchedAt;
 
     public function getId(): ?int
     {
@@ -67,12 +62,12 @@ class SearchHistory
         return $this;
     }
 
-    public function getSearchedAt(): ?\DateTimeImmutable
+    public function getSearchedAt(): ?\DateTime
     {
         return $this->searchedAt;
     }
 
-    public function setSearchedAt(\DateTimeImmutable $searchedAt): self
+    public function setSearchedAt(\DateTime $searchedAt): self
     {
         $this->searchedAt = $searchedAt;
 

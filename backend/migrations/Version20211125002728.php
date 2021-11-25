@@ -8,7 +8,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211124233755 extends AbstractMigration
+final class Version20211125002728 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -18,8 +18,7 @@ final class Version20211124233755 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE searches (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, client_ip VARCHAR(255) NOT NULL, "query" VARCHAR(255) NOT NULL, searched_at DATETIME NOT NULL --(DC2Type:datetime_immutable)
-        )');
+        $this->addSql('CREATE TABLE searches (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, client_ip VARCHAR(255) NOT NULL, "query" VARCHAR(255) NOT NULL, searched_at DATETIME NOT NULL)');
     }
 
     public function down(Schema $schema): void

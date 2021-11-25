@@ -103,6 +103,9 @@
     "psr/log": {
         "version": "2.0.0"
     },
+    "symfony/amqp-messenger": {
+        "version": "v5.3.7"
+    },
     "symfony/cache": {
         "version": "v5.3.11"
     },
@@ -132,6 +135,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v5.3.11"
+    },
+    "symfony/doctrine-messenger": {
+        "version": "v5.3.10"
     },
     "symfony/dotenv": {
         "version": "v5.3.10"
@@ -206,6 +212,18 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/messenger": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "25e3c964d3aee480b3acc3114ffb7940c89edfed"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
     "symfony/options-resolver": {
         "version": "v5.3.7"
     },
@@ -238,6 +256,9 @@
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.3.11"
+    },
+    "symfony/redis-messenger": {
+        "version": "v5.3.10"
     },
     "symfony/routing": {
         "version": "5.3",

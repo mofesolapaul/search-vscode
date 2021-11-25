@@ -17,4 +17,5 @@ cat <<backend | docker exec --interactive svsc_php bash
   composer dump-env prod
   composer install --prefer-dist --no-dev --optimize-autoloader
   APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
+  ./bin/console --no-interaction doctrine:migrations:migrate
 backend

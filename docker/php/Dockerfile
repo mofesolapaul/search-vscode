@@ -45,7 +45,8 @@ RUN if [ $WITH_XDEBUG = "true" ] ; then \
 RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh && bash nodesource_setup.sh && apt-get -y --force-yes install nodejs
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
-RUN chmod +x /usr/local/bin/install-php-extensions && sync
+RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
+    install-php-extensions amqp
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
         PHP_OPCACHE_MAX_ACCELERATED_FILES="10000" \

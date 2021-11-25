@@ -23,7 +23,7 @@ class SearchController extends AbstractController
     #[Route('/search', name: 'api_search', methods: ['POST'])]
     public function index(Request $request): Response
     {
-        $data = new SearchData();
+        $data = new SearchData($request->getClientIp());
         $form = $this->createForm(SearchType::class, $data);
         $form->submit($request->request->all());
 

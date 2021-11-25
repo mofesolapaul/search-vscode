@@ -48,6 +48,15 @@ services:
     networks:
       - app-network
 
+  rabbitmq:
+    container_name: svsc_rabbit
+    image: rabbitmq:3.9.1-management
+    restart: always
+    volumes:
+      - ./docker/rabbitmq/rabbitmq.conf/:/etc/rabbitmq/rabbitmq.conf/
+    networks:
+      - app-network
+
 networks:
   app-network:
     external:
