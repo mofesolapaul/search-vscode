@@ -10,6 +10,6 @@ class HomeController
     #[Route('/')]
     public function index(): Response
     {
-        return new Response('Confiant "Search VsCode" backend is up and running. Go to React app at http://localhost:8088');
+        return new Response('"Search VsCode" backend is up and running. Go to React app at http://localhost:8088');
     }
 }
