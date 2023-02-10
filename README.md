@@ -1,4 +1,5 @@
 ## Project: Search VSCode
+This is a single-page React application powered by a PHP (Symfony) backend that allows a user to search code on Github within Microsoft's Vscode repository. It features a caching system to prevent user from hitting the [Github API's](https://api.github.com/search/code) rate limit, by returning cached result for already known queries.
 
 ### Setup instructions
 The entire setup process has been distilled into a single file to make it easy for you to spin up the application and try it out. Run the following command in the project folder (p.s: docker must be installed on your machine):
